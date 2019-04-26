@@ -1,0 +1,35 @@
+  - name: Install Windows Updates
+    win_updates:
+      category_names: 
+        - SecurityUpdates
+        - CriticalUpdates
+        - UpdateRollups
+        - Updates
+      reboot: yes
+
+      #  - name: Generate .NET Assemblies 
+      #win_dotnet_ngen:
+  
+  - name: Set Pagefile
+    win_pagefile:
+      drive: C
+      initial_size: 2048
+      maximum_size: 2048
+      state: present
+      automatic: no
+
+  - name: Set Windows Region
+    win_region:
+      format: nl-NL
+      copy_settings: true
+      location: 176
+      unicode_language: nl-NL
+    register: region
+
+  - name: Reboot for Region Settings
+    win_reboot:
+    when: region.restart_required
+
+  - name: Change the Powerplan to High Performance
+    win_power_plan:
+      name: high performance
