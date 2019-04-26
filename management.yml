@@ -14,6 +14,23 @@
      
     - name: Reboot Windows 
       win_reboot:
-      when: feature_state.reboot_required    
+      when: feature_state.reboot_required
+      
+    - name: Install basic Applications
+      win_chocolatey:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - firefox
+        - putty.install
+        - adobereader
+        - 7zip.install
+        - notepadplusplus.install
+        - vlc
+        - silverlight
+        - filezilla
+        - atom
+        - vcredist-all
+
 
     
