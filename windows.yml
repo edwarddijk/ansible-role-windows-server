@@ -10,8 +10,8 @@
           - Updates
         reboot: yes
 
-      #  - name: Generate .NET Assemblies 
-      #win_dotnet_ngen:
+    - name: Generate .NET Assemblies 
+      win_dotnet_ngen:
   
     - name: Set Pagefile
       win_pagefile:
