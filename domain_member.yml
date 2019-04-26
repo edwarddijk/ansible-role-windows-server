@@ -1,7 +1,7 @@
 - name: Domain Member
   hosts: "{{ host_group }}"
   tasks:
-    - name: Set multiple lookup addresses on all visible adapters (usually physical adapters that are in the Up state), with debug logging to a file
+    - name: Set DNS Server
       win_dns_client:
         adapter_names: '*'
         ipv4_addresses: "{{ dns_server }}"
