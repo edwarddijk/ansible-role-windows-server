@@ -1,4 +1,3 @@
-
 - name: Create Windows Domain Controller
   hosts: "{{ host_group }}"
   tasks:
