@@ -9,9 +9,9 @@
     
     - name: Creating a Domain Controller
       win_domain:
-      register: ad_result
         dns_domain_name: "{{ fqdn_domainname }}"
         safe_mode_password: "{{ dsr_password }}"
+      register: ad_result
         
     - name: Reboot Computer
       win_reboot:
