@@ -31,8 +31,6 @@
         - 7zip.install
         - notepadplusplus.install
         - vlc
-        - silverlight
-        - filezilla
         - atom
         - vcredist-all
 
