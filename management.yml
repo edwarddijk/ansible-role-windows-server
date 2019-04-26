@@ -12,6 +12,10 @@
         - RSAT-DNS-Server
       register: feature_state
      
+    - name: disable enhanced exit codes
+      win_chocolatey_feature:
+        name: useEnhancedExitCodes
+        state: disabled
    # - name: Reboot Windows 
    #   win_reboot:
    #   when: feature_state.reboot_required
