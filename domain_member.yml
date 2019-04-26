@@ -1,1 +1,14 @@
----
+- name: Windows Standaard
+  hosts: "{{ host_group }}"
+  tasks:
+    - name: Join Windows Domain
+      win_domain_membership:
+        dns_domain_name: "{{ fqdn_domainname }}"
+        state: domain
+        domain_admin_user: "{{ win_domain_user }}"
+        domain_admin_password: "{{ win_domain_password }}"
+    register: domain_state
+
+    - name: Reboot Windows
+      win_reboot:
+      when: domain_state.reboot_required
