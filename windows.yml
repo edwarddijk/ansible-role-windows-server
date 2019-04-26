@@ -1,5 +1,5 @@
 - name: Windows Standaard
-  hosts: all
+  hosts: Windows
   tasks:
     - name: Install Windows Updates
       win_updates:
