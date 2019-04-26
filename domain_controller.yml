@@ -1,5 +1,5 @@
 - name: Create Windows Domain Controller
-  hosts: DomainController
+  hosts: "{{ host_group }}"
   gather_facts: no
   tasks:
     - name: Add AD Domain Services
