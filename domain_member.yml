@@ -1,6 +1,11 @@
 - name: Domain Member
   hosts: "{{ host_group }}"
   tasks:
+    - name: Set multiple lookup addresses on all visible adapters (usually physical adapters that are in the Up state), with debug logging to a file
+      win_dns_client:
+        adapter_names: '*'
+        ipv4_addresses: "{{ dns_server }}"
+
     - name: Join Windows Domain
       win_domain_membership:
         dns_domain_name: "{{ fqdn_domainname }}"
