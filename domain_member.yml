@@ -12,7 +12,7 @@
         state: domain
         domain_admin_user: "{{ win_domain_user }}"
         domain_admin_password: "{{ win_domain_password }}"
-    register: domain_state
+      register: domain_state
 
     - name: Reboot Windows
       win_reboot:
