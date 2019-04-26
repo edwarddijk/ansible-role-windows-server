@@ -10,6 +10,11 @@
           - Updates
         reboot: yes
         
+    - name: disable enhanced exit codes
+      win_chocolatey_feature:
+        name: useEnhancedExitCodes
+        state: disabled
+        
     - name: Upgrade installed packages
       win_chocolatey:
         name: all
