@@ -1,5 +1,5 @@
 - name: Windows Standaard
-  hosts: Windows
+  hosts: "{{ group }}"
   tasks:
     - name: Install Windows Updates
       win_updates:
