@@ -12,9 +12,9 @@
         - RSAT-DNS-Server
       register: feature_state
      
-    - name: Reboot Windows 
-      win_reboot:
-      when: feature_state.reboot_required
+   # - name: Reboot Windows 
+   #   win_reboot:
+   #   when: feature_state.reboot_required
       
     - name: Install basic Applications
       win_chocolatey:
