@@ -1,5 +1,6 @@
 - name: Create Windows Domain Controller
   hosts: DomainController
+  gather_facts: no
   tasks:
     - name: Add AD Domain Services
       win_feature:
