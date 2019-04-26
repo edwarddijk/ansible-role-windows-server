@@ -1,0 +1,19 @@
+- name: Windows Management Server
+  hosts: "{{ host_group }}"
+  tasks:
+    - name: Adding Windows Features and Roles
+      win_feature:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - GPMC
+        - NET-Framework-Features
+        - RSAT-AD-Tools
+        - RSAT-DNS-Server
+      register: feature_state
+     
+    - name: Reboot Windows 
+      win_reboot:
+      when: feature_state.reboot_required    
+
+    
