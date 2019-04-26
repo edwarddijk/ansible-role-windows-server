@@ -1,5 +1,5 @@
 - name: Create Windows Domain Controller
-  hosts: "{{ host_group }}"
+  hosts: DomainController
   tasks:
     - name: Add AD Domain Services
       win_feature:
