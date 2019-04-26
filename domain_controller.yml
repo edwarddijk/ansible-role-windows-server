@@ -9,9 +9,14 @@
     
     - name: Creating a Domain Controller
       win_domain:
+      register: ad_result
         dns_domain_name: "{{ fqdn_domainname }}"
         safe_mode_password: "{{ dsr_password }}"
-
+        
+    - name: Reboot Computer
+      win_reboot:
+      when: ad_result.reboot_required
+      
     - name: Create Ansible User
       win_domain_user:
         name: Ansible
