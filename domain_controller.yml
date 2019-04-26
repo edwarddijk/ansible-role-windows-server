@@ -1,7 +1,23 @@
-- name: Create Domain Controller
+- name: Create Windows Domain Controller
   hosts: DomainController
+  gather_facts: no
   tasks:
-    - name: Add AD domain services
+    - name: Add AD Domain Services
       win_feature:
         name: AD-Domain-Services
         state: present
+    
+    - name: Creating a Domain Controller
+      win_domain:
+        dns_domain_name: "{{ fqdn_domainname }}"
+        safe_mode_password: "{{ dsr_password }}"
+
+    - name: Create Ansible User
+      win_domain_user:
+        name: Ansible
+        firstname: Ansible
+        surname: Service
+        password: "{{ ansible_ad_password }}"
+        description: Ansible Automation User
+        groups:
+          - Domain Admins
