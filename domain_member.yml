@@ -1,4 +1,4 @@
-- name: Windows Standaard
+- name: Domain Member
   hosts: "{{ host_group }}"
   tasks:
     - name: Join Windows Domain
