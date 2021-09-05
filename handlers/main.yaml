@@ -1,0 +1,5 @@
+---
+
+- name: Run Storage Sense
+  ansible.windows.win_command: c:\windows\system32\svchost.exe -k localsystemnetworkrestricted -s StorSvc
+

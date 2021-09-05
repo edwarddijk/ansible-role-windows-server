@@ -1,0 +1,11 @@
+---
+
+# Install Powershell DSC Modules
+- name: Install PowershellDSC Modules
+  community.windows.win_psmodule:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - ComputerManagementDsc
+    - NetworkingDsc
+    - StorageDsc

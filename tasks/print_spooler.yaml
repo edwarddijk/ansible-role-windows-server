@@ -1,0 +1,15 @@
+---
+
+- name: Check if Spooler service exists
+  ansible.windows.win_service:
+    name: 'Spooler'
+  register: print_spooler
+
+- name: Disable the Spooler service
+  ansible.windows.win_service:
+    name: 'Spooler'
+    start_mode: disabled
+    state: stopped
+  when: 
+    - print_spooler.exists == true
+    - print_server|bool == false

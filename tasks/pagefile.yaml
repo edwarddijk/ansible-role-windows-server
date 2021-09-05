@@ -1,0 +1,15 @@
+---
+
+# Set a static pagefile
+- name: Ensure the pagefile of {{ pagefile_size }} MB exists on drive C
+  ansible.windows.win_dsc:
+    resource_name: VirtualMemory
+    Type: 'CustomSize'
+    Drive: 'C'
+    InitialSize: "{{ pagefile_size }}"
+    MaximumSize: "{{ pagefile_size }}"
+  register: pagefile_result
+
+- name: Reboot to apply pagefile settings
+  ansible.windows.win_reboot:
+  when: pagefile_result.reboot_required

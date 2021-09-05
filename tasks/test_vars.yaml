@@ -1,0 +1,17 @@
+---
+- name: Test OS type and version
+  assert:
+    that:
+      - ansible_os_name == "Microsoft Windows Server 2019 Standard"
+    fail_msg: "This role is only tested on Windows Server 2019"
+
+- name: Test default variables
+  assert:
+    that:
+      - cdrom_drive is defined
+      - cdrom_drive_letter is defined
+      - pagefile_size is defined
+      - remote_desktop is defined
+      - power_plan_name is defined
+    fail_msg: "Default variables are not defined!"
+

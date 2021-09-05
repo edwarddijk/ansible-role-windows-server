@@ -1,0 +1,22 @@
+---
+
+# Set the correct region and language
+- name: Ensure the region format is set do Dutch
+  community.windows.win_region:
+    format: nl-NL
+    copy_settings: yes
+    location: 176
+    unicode_language: nl-NL
+  register: region_result
+
+- name: Reboot to apply region settings
+  ansible.windows.win_reboot:
+  when: region_result.restart_required
+
+# Set the timezone
+- name: Ensure the timezone is set to W. Europe Standard Time
+  ansible.windows.win_dsc:
+    resource_name: TimeZone
+    IsSingleInstance: 'Yes'
+    TimeZone: 'W. Europe Standard Time'
+

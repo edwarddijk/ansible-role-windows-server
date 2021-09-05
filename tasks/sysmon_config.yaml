@@ -1,0 +1,16 @@
+---
+
+- name: Ensure "{{ staging_directory }}" exists
+  ansible.windows.win_file:
+    path: '{{ staging_directory }}'
+    state: directory
+
+- name: Download SwiftOnSecurity Sysmon configuration
+  ansible.windows.win_get_url:
+    url: '{{ sysmon_config_url }}'
+    dest: '{{ staging_directory }}'
+
+- name: Install Sysmon64 with config
+  win_command: Sysmon64.exe -accepteula -i {{ staging_directory }}\sysmonconfig-export.xml
+  args:
+    creates: C:\Windows\Sysmon64.exe

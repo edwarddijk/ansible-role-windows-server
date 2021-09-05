@@ -1,0 +1,21 @@
+---
+
+# Enable Remote Desktop for Admins
+# Default is diabled
+remote_desktop: no
+
+# Pagefile size is equal to the ammount of memory
+pagefile_size: "{{ ansible_memtotal_mb }}"
+
+# Powerplan name defults to High Performance
+power_plan_name: high performance
+
+# CD-ROM Drive letter defaults to Z
+cdrom_drive_letter: Z
+cdrom_drive: yes
+
+staging_directory: 'C:\Install'
+
+sysmon_config_url: 'https://raw.githubusercontent.com/SwiftOnSecurity/sysmon-config/master/sysmonconfig-export.xml'
+
+print_server: no

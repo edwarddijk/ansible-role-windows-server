@@ -1,0 +1,12 @@
+---
+
+# Ste the Computername
+- name: Configure the Windows hostname
+  ansible.windows.win_dsc:
+    resource_name: computer
+    Name: "{{ inventory_hostname }}"
+  register: computer_result
+
+- name: Reboot to apply pagefile settings
+  ansible.windows.win_reboot:
+  when: computer_result.reboot_required

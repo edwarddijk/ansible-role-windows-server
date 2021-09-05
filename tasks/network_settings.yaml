@@ -1,0 +1,26 @@
+---
+
+# General network settings
+
+# Disable NetBIOS over TCP/IP
+- name: Ensure NetBIOS is disabled
+  community.windows.win_netbios:
+    state: disabled
+    
+- name: Ensure LMHOSTS lookup is disabled
+  ansible.windows.win_regedit:
+    path: HKLM:\SYSTEM\CurrentControlSet\Services\NetBT\Parameters
+    name: EnableLMHOSTS
+    type: dword
+    data: 0
+    state: present
+
+# Prevent WPAD searches etc.
+- name: Configure IE proxy to disable autodetect
+  ansible.windows.win_dsc:
+    resource_name: ProxySettings
+    IsSingleInstance: 'Yes'
+    Ensure: 'Present'
+    EnableAutoDetection: False
+    EnableAutoConfiguration: False
+    EnableManualProxy: False

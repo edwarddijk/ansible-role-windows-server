@@ -1,0 +1,10 @@
+---
+
+# Set driveletter CD-ROM
+- name: Ensure CD-ROM Driveletter is {{ cdrom_drive_letter }}
+  ansible.windows.win_dsc:
+    resource_name: OpticalDiskDriveLetter
+    DiskId: 1
+    DriveLetter: '{{ cdrom_drive_letter }}'
+    Ensure: 'Present'
+  when: cdrom_drive|bool == true

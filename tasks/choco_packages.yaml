@@ -1,0 +1,18 @@
+---
+
+# Install Choco packages
+
+# Install Microsoft Sysmon
+- name: Install Sysmon
+  win_chocolatey:
+    name: 
+      - sysmon
+    state: present
+
+# Install Microsoft Edge package
+- name: Install Microsoft Edge
+  win_chocolatey:
+    name: 
+      - microsoft-edge
+    state: present
+  when: ansible_os_installation_type == "Server"

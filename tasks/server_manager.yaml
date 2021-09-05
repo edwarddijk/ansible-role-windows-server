@@ -1,0 +1,16 @@
+---
+
+# Check if the ServerManager scheduled task exists
+- name: Is ServerManager a scheduled task
+  win_scheduled_task_stat:
+    name: ServerManager
+    path: '\Microsoft\Windows\Server Manager'
+  register: task_stat
+
+# Disable Server Manager
+- name: Ensure Server Manager is disabled
+  win_scheduled_task:
+    name: ServerManager
+    path: '\Microsoft\Windows\Server Manager'
+    enabled: no
+  when: task_stat.task_exists

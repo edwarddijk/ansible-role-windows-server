@@ -1,0 +1,26 @@
+---
+
+- name: Enable Storage Sense Global
+  ansible.windows.win_regedit:
+    path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\StorageSense
+    name: AllowStorageSenseGlobal
+    data: 1
+    type: dword
+    state: present
+  notify: "Run Storage Sense"
+    
+- name: Allow Storage Sense Temp Files Cleanup
+  ansible.windows.win_regedit:
+    path: HKLM:\Software\Policies\Microsoft\Windows\StorageSense
+    name: AllowStorageSenseTemporaryFilesCleanup
+    data: 1
+    type: dword
+    state: present
+
+- name: Configure Storage Sense Cadence
+  ansible.windows.win_regedit:
+    path: HKLM:\Software\Policies\Microsoft\Windows\StorageSense
+    name: ConfigStorageSenseGlobalCadence
+    data: 0
+    type: dword
+    state: present

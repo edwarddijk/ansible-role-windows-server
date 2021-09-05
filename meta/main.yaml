@@ -1,0 +1,13 @@
+---
+
+galaxy_info:
+  author: Edward Dijk
+  description: Basic Windows Server configuration
+  company: Enso
+  license: "License (BSD, MIT)"
+  min_ansible_version: 2.9
+  platforms:
+    - name: Windows
+      version: 2019
+  galaxy_tags:
+    - windows

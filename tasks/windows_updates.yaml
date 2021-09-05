@@ -1,0 +1,7 @@
+---
+
+- name: Install all updates without a scheduled task
+  ansible.windows.win_updates:
+    category_names: '*'
+    reboot: yes
+    state: installed

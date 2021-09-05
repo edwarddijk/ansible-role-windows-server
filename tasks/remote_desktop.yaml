@@ -1,0 +1,31 @@
+---
+
+# Disable Remote Desktop for Admins
+- name: Ensure Remote Desktop for Administrators is Disabled
+  ansible.windows.win_dsc:
+    resource_name: RemoteDesktopAdmin
+    IsSingleInstance: "Yes"
+    Ensure: Absent
+    UserAuthentication: Secure
+  when: remote_desktop|bool == false
+
+- name: Ensure Remote Desktop for Administrators is Enabled
+  block:
+
+  - name: Enable Remote Desktop for Admin
+    ansible.windows.win_dsc:
+      resource_name: RemoteDesktopAdmin
+      IsSingleInstance: "Yes"
+      Ensure: Present
+      UserAuthentication: Secure
+
+  - name: Ensure RDP Protocol is allowed in Firewall
+    community.windows.win_firewall_rule:
+      name: 'Remote Desktop for Admins'
+      direction: in
+      action: allow
+      protocol: tcp
+      localport: 3389
+      state: present
+
+  when: remote_desktop|bool == true

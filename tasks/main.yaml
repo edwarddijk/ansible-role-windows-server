@@ -1,0 +1,63 @@
+---
+# Include Test Variables
+- name: Include Test variables
+  include_tasks: test_vars.yaml
+
+# Install Windows Updates
+- name: Install Windows Updates
+  include_tasks: windows_updates.yaml
+
+# Include tasks
+- name: Include Powersshell DSC Modules
+  include_tasks: powershelldsc.yaml
+
+# Include Pagefile settings
+- name: Include Pagefile settings
+  include_tasks: pagefile.yaml
+
+# Include Set Windows Hostname
+- name: Include Set Hostname
+  include_tasks: hostname.yaml
+
+# Include Power Settings
+- name: Include Power Settings
+  include_tasks: power_settings.yaml
+
+# Include Region and Language settings
+- name: Include Region and Language settings
+  include_tasks: region_language.yaml
+
+# Include Network Settings
+- name: Include general network settings
+  include_tasks: network_settings.yaml
+
+# Include Choco Packages
+- name: Include Install choco packages
+  include_tasks: choco_packages.yaml
+
+# Include Configure Sysmon
+- name: Include Configure Sysmon
+  include_tasks: sysmon_config.yaml
+
+# Include Remote Desktop for Admins config
+- name: Include Remote Desktop for Admins config
+  include_tasks: remote_desktop.yaml
+
+# Include Crash Control
+- name: Include Crash Control Settings
+  include_tasks: crash_control.yaml
+
+# Include Disable Server Manager
+- name: Include Disable Server Manager
+  include_tasks: server_manager.yaml
+
+# Include Disbale Print Spooler
+- name: Include Disable Print Spooler
+  include_tasks: print_spooler.yaml
+
+# Include Set CD-ROM Drive letter
+- name: Include Set CD-ROM Drive letter
+  include_tasks: cdrom_drive.yaml
+
+- name: Include Storage Sense
+  include_tasks: storage_sense.yaml
