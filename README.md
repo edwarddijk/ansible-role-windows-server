@@ -38,7 +38,7 @@ Information : https://stackoverflow.com/questions/55773505/where-to-place-requir
 
 ```yaml
 ---    
-- src: https://gitlab.com/EdwardDijk/ansible-role-windowsserver.git
+- src: https://github.com/edwarddijk/ansible-windows-server.git
   scm: git
   version: main
   name: windowsserver
