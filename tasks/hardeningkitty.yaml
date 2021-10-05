@@ -1,0 +1,7 @@
+---
+
+# Download git repo
+- name: Download HardeningKitty
+  ansible.windows.win_get_url:
+    url: 'https://github.com/0x6d69636b/windows_hardening/archive/refs/tags/v.0.6.0.zip'
+    dest: '{{ staging_dir }}'
