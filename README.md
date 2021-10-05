@@ -40,7 +40,7 @@ Information : https://stackoverflow.com/questions/55773505/where-to-place-requir
 ---    
 - src: https://github.com/edwarddijk/ansible-windows-server.git
   scm: git
-  version: main
+  version: master
   name: windowsserver
 ```
 
