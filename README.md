@@ -50,8 +50,17 @@ ansible-galaxy install -r roles/requirements.yaml -p ./roles/
 
 ## Configuration Items
 
-- Hostname
-- Set Pagefile to memory size 
-- Disable LMHOSTS Lookup
-- Disable NetBIOS over TCP/IP
-- 
+- Install Windows Updates
+- Download Powershell DSC Modules
+- Set Pagefile
+- Set Hostname
+- Set Power Settings
+- Set Region and Language options
+- Set General Network Settings
+  - Disable LMHOST Lookup
+  - Disable NetBIOS over TCP/IP
+- Installing Basic Software with Chocolatey
+- Configure Microsoft Sysmon with a (xml)Profile
+- Disable Server Manager Scheduled Task
+- Change the CD-ROM Drive Letter
+- (WIP) Storage Sense Settings?
