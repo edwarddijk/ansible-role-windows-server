@@ -12,10 +12,15 @@ power_plan_name: high performance
 
 # CD-ROM Drive letter defaults to Z
 cdrom_drive_letter: Z
+
+# Is a CD-ROM drive available on the server? The default is yes
 cdrom_drive: yes
 
+# A directory for storing files needed during the configuration
 staging_directory: 'C:\Install'
 
 sysmon_config_url: 'https://raw.githubusercontent.com/SwiftOnSecurity/sysmon-config/master/sysmonconfig-export.xml'
 
+# Is the server a Print Server? Default is no.
+# This disables or enables the Print Spooler service on the server.
 print_server: no
