@@ -34,6 +34,23 @@ ansible-galaxy install -r requirements.yaml
 
 Information : https://stackoverflow.com/questions/55773505/where-to-place-requirements-yml-for-ansible-and-use-it-to-resolve-dependencies
 
+## Hardening (WIP)
+Integrating CIS with the help of:
+https://github.com/0x6d69636b/windows_hardening
+
+There are some exclusions needed to keep WinRM and a Remote Session working.
+
+### Path: Computer Configuration/Administrative Templates/Windows Components/Windows Remote Management (WinRM)/WinRM Service
+- Allow remote server management through WinRM -> Enabled
+
+### Path: Computer Configuration/Administrative Templates/Windows Components/Windows 
+- Remote Shell -> Enabled
+
+### Path: Computer Configuration/Security Settings/Local Policies/Security Options
+- Network access: Do not allow storage of passwords and credentials for network authentication -> Disabled
+
+Needed for elevated permissions and for example the installation of Microsoft Exchange and or Microsoft SQL Server
+
 ### roles\requirements.yaml
 
 ```yaml
