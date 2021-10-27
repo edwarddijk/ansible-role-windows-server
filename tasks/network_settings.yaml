@@ -16,9 +16,10 @@
     state: present
 
 # Prevent WPAD searches etc.
-- name: Configure IE proxy to disable autodetect
+- name: Configure Windows Proxy Settings
   ansible.windows.win_dsc:
     resource_name: ProxySettings
+    Target: 'LocalMachine'
     IsSingleInstance: 'Yes'
     Ensure: 'Present'
     EnableAutoDetection: False
