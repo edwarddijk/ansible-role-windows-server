@@ -18,8 +18,6 @@ ansible-galaxy install -r requirements.yaml
 ```
 
 ## Variables
-
-
 | Name | Type |Description | Default | 
 |------|------|-------|---------|
 | cdrom_drive | Boolean | Is a CD-ROM Drive available in the system | yes |
@@ -29,9 +27,16 @@ ansible-galaxy install -r requirements.yaml
 | staging_directory | String | Storage directory for files needed during install and configuration | C:\Install |
 | sysmon_config_url | String | Web location for the Sysmon config xml | https://raw.githubusercontent.com/SwiftOnSecurity/sysmon-config/master/sysmonconfig-export.xml |
 | print_server | Boolean | Is the server a Print Server | no |
+| region_location | integer | Decimal value og geographical location | 176 |
+| region_language | string | Locale name | nl_NL |
+| region_unicode_language | string | Locale name for unicode | nl_NL |
+| timezone | string | timezone name | W. Europe Standard Time |
+
+
+## Microsoft Language codes etc
+https://docs.microsoft.com/en-us/cpp/c-runtime-library/language-strings?view=msvc-160
 
 ## Structure
-
 Information : https://stackoverflow.com/questions/55773505/where-to-place-requirements-yml-for-ansible-and-use-it-to-resolve-dependencies
 
 ## Hardening (WIP)
