@@ -19,4 +19,3 @@
     resource_name: TimeZone
     IsSingleInstance: 'Yes'
     TimeZone: 'W. Europe Standard Time'
-
