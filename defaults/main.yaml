@@ -30,4 +30,5 @@ region_location: 176
 region_language: 'nl-NL'
 region_unicode_language: 'nl-NL'
 
+# Timezone to be configured
 timezone: 'W. Europe Standard Time'
