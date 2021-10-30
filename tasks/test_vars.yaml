@@ -14,4 +14,3 @@
       - remote_desktop is defined
       - power_plan_name is defined
     fail_msg: "Default variables are not defined!"
-
