@@ -24,3 +24,10 @@ sysmon_config_url: 'https://raw.githubusercontent.com/SwiftOnSecurity/sysmon-con
 # Is the server a Print Server? Default is no.
 # This disables or enables the Print Spooler service on the server.
 print_server: no
+
+# Region Settings
+region_location: 176
+region_language: 'nl-NL'
+region_unicode_language: 'nl-NL'
+
+timezone: 'W. Europe Standard Time'
